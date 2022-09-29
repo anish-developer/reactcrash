@@ -5,6 +5,8 @@ const ContactCard = (props) => {
   return (
     <div className="item">
       <div className="content">
+        {/* <hr /> */}
+
         <hr />
         <div className="header">
           <FaRegUserCircle style={{ margin: "2px" }} />
@@ -16,6 +18,7 @@ const ContactCard = (props) => {
             style={{ color: "red", marginLeft: "80em" }}
             onClick={() => props.clickHandler(id)}
           />
+          <hr />
         </div>
       </div>
     </div>

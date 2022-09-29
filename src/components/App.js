@@ -3,7 +3,9 @@ import { Route, Routes } from "react-router-dom";
 import AddContact from "./AddContact";
 import ContactList from "./ContactList";
 import { useState, useEffect } from "react";
+import "./App.css";
 import { v4 as uuidv4 } from "uuid";
+import { useNavigate } from "react-router-dom";
 function App() {
   const LOCAL_STORAGE_KEY = "contacts";
   // const contacts = [
@@ -47,14 +49,11 @@ function App() {
       localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
     }
   }, [contacts]);
+  let navigate = useNavigate();
   return (
     <>
       <Header />
       <Routes>
-        <Route
-          path="add"
-          element={<AddContact addContactHandler={addContactHandler} />}
-        />
         <Route
           path="/"
           element={
@@ -64,6 +63,16 @@ function App() {
             />
           }
         />
+        <Route
+          path="add"
+          element={
+            <AddContact
+              navigate={navigate}
+              addContactHandler={addContactHandler}
+            />
+          }
+        />
+
         {/* <AddContact addContactHandler={addContactHandler} /> */}
         {/* <ContactList contacts={contacts} getContactId={removeContactHandler} /> */}
       </Routes>
