@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
+import ContactDetail from "./ContactDetail";
 function App() {
   const LOCAL_STORAGE_KEY = "contacts";
   // const contacts = [
@@ -72,7 +73,7 @@ function App() {
             />
           }
         />
-
+        <Route path="/contact/:id" element={<ContactDetail />} />
         {/* <AddContact addContactHandler={addContactHandler} /> */}
         {/* <ContactList contacts={contacts} getContactId={removeContactHandler} /> */}
       </Routes>
